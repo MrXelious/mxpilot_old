@@ -117,8 +117,7 @@ class CarController:
     if CS.leftBlinkerOn or CS.rightBlinkerOn:
       self.signal_last = cur_time
 
-    lat_active = CC.latActive and (not CS.belowLaneChangeSpeed or
-                   (not ((cur_time - self.signal_last) < 1.0) and not (CS.leftBlinkerOn or CS.rightBlinkerOn)))
+    lat_active = CC.latActive 
 
     if not lat_active:
       apply_steer = 0

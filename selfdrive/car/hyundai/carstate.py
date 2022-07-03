@@ -203,9 +203,7 @@ class CarState(CarStateBase):
     ret.steerFaultTemporary = False
 
     if self.madsEnabled:
-      if (not self.belowLaneChangeSpeed and (self.rightBlinkerOn or self.leftBlinkerOn)) or\
-        not (self.rightBlinkerOn or self.leftBlinkerOn):
-        ret.steerFaultTemporary = cp.vl["MDPS12"]["CF_Mdps_ToiUnavail"] != 0 or cp.vl["MDPS12"]["CF_Mdps_ToiFlt"] != 0
+      ret.steerFaultTemporary = cp.vl["MDPS12"]["CF_Mdps_ToiUnavail"] != 0 or cp.vl["MDPS12"]["CF_Mdps_ToiFlt"] != 0
 
     ret.latActive = self.CP.latActive
 
